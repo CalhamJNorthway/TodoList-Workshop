@@ -1,12 +1,11 @@
-import { Button, Container } from "@material-ui/core";
 import React, { useState } from "react";
+import { Button, Container } from "@material-ui/core";
 import { ItemList } from "../../core/components/ItemList";
 import { CreationModal } from "../../core/components/Modal";
 import { Dictionary, ListItem } from "../../core/Types";
 
 interface MainPageProps {
   items: Dictionary<ListItem>;
-  onItemClick: () => void;
   addItem: (item: ListItem) => void;
 }
 
@@ -18,7 +17,7 @@ export const MainPage = (props: MainPageProps) => {
 
   return (
     <Container style={{display:"flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
-      <ItemList items={props.items} onClick={props.onItemClick}/>
+      <ItemList items={props.items}/>
       <div style={{padding: 10}}/>
       <Button
         variant="contained"

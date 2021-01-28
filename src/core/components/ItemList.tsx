@@ -1,15 +1,16 @@
 import { Button, Divider, List, ListItem as MuiItem, ListItemText, Typography } from "@material-ui/core";
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Dictionary, ListItem } from "../Types";
 
 interface ItemListProps {
   items: Dictionary<ListItem>;
-  onClick: () => void;
 }
 
 export const ItemList = (props: ItemListProps) => {
 
   const values = Object.values(props.items);
+  const history = useHistory();
 
   return (
     <List
@@ -32,7 +33,7 @@ export const ItemList = (props: ItemListProps) => {
           <ListItemText style={{color: "#000000"}}>{item.title}</ListItemText>
           <Button
             variant={"contained"}
-            onClick={props.onClick}
+            onClick={() => history.push(`/details?key=${item.key}`)}
           >
             Details
           </Button>
