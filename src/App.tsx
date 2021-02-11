@@ -49,6 +49,7 @@ function App() {
             <DetailsPage
               itemList={itemList}
               editItem={editItem}
+              removeItem={removeItem}
             />
           </Route>
         </Switch>
