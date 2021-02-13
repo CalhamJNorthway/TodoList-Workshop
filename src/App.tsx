@@ -20,7 +20,6 @@ function App() {
     }
 
     if (itemList && Object.keys(itemList).length > 0) {
-      console.log(itemList);
       cookieManager.set<Dictionary<ListItem>>(CookieKeys.TASK_LIST, itemList);
     }
   }, [itemList]);
@@ -43,7 +42,6 @@ function App() {
     if (Object.keys(listCopy).length === 0) {
       cookieManager.remove(CookieKeys.TASK_LIST);
     }
-    console.log("REMOVE", listCopy);
     setItemList(listCopy);
   }
 
