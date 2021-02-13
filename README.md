@@ -1,3 +1,14 @@
+
+### PACKAGES USED:
+Material-UI: https://material-ui.com/
+Material-Icons: https://material-ui.com/components/material-icons/#material-icons
+React-Router: https://reactrouter.com/web/guides/quick-start
+Cookies: https://www.npmjs.com/package/universal-cookie
+
+### DOCS:
+Typescript: https://www.typescriptlang.org/
+React: https://reactjs.org/docs/getting-started.html
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -44,3 +55,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
