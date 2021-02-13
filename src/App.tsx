@@ -11,15 +11,16 @@ import Cookies from 'universal-cookie';
 const cookieManager = new CookieManager(new Cookies());
 
 function App() {
-  const [itemList, setItemList] = useState<Dictionary<ListItem>>({})
+  const [itemList, setItemList] = useState<Dictionary<ListItem> | null>(null)
 
   useEffect(() => {
-    if (Object.keys(itemList).length === 0) {
-      const taskList = cookieManager.getByKey<Dictionary<ListItem>>(CookieKeys.TASK_LIST);
+    if (!itemList) {
+      const taskList = cookieManager.getByKey<Dictionary<ListItem>>(CookieKeys.TASK_LIST) || {};
       setItemList(taskList);
     }
 
-    if (Object.keys(itemList).length > 0) {
+    if (itemList && Object.keys(itemList).length > 0) {
+      console.log(itemList);
       cookieManager.set<Dictionary<ListItem>>(CookieKeys.TASK_LIST, itemList);
     }
   }, [itemList]);
@@ -39,6 +40,10 @@ function App() {
   const removeItem = (item: ListItem): void => {
     const listCopy: Dictionary<ListItem> = { ...itemList };
     delete listCopy[item.key];
+    if (Object.keys(listCopy).length === 0) {
+      cookieManager.remove(CookieKeys.TASK_LIST);
+    }
+    console.log("REMOVE", listCopy);
     setItemList(listCopy);
   }
 
@@ -54,13 +59,13 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <MainPage
-              items={itemList}
+              items={itemList || {}}
               addItem={addItem}
             />
           </Route>
           <Route path="/details">
             <DetailsPage
-              itemList={itemList}
+              itemList={itemList || {}}
               editItem={editItem}
               removeItem={removeItem}
             />
