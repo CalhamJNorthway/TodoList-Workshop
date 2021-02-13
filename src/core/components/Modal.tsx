@@ -13,6 +13,16 @@ export const CreationModal = (props: ModalProps) => {
   const [details, setDetails] = useState("");
 
   const {open, onClose, onSubmit} = props;
+  
+  const clearState = () => {
+    setTitle("");
+    setDetails("");
+  }
+
+  const handleClose = () => {
+    clearState();
+    onClose();
+  }
 
   const handleSubmit = () => {
     const item: ListItem = {
@@ -24,6 +34,7 @@ export const CreationModal = (props: ModalProps) => {
     
     onClose();
     onSubmit(item);
+    clearState();
   }
   return (
     <Dialog
@@ -48,7 +59,7 @@ export const CreationModal = (props: ModalProps) => {
         <div style={{ padding: 10 }} />
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} color="secondary">
+        <Button onClick={handleClose} color="secondary">
           Disagree
           </Button>
         <Button onClick={handleSubmit} color="primary" autoFocus>
