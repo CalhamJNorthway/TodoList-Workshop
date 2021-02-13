@@ -8,10 +8,10 @@ import { DetailsPage } from './pages/detailsPage/DetailsPage';
 import {CookieKeys, CookieManager} from "./core/storage";
 import Cookies from 'universal-cookie';
 
+const cookieManager = new CookieManager(new Cookies());
+
 function App() {
   const [itemList, setItemList] = useState<Dictionary<ListItem>>({})
-
-  const cookieManager = new CookieManager(new Cookies());
 
   useEffect(() => {
     if (Object.keys(itemList).length === 0) {
@@ -22,7 +22,7 @@ function App() {
     if (Object.keys(itemList).length > 0) {
       cookieManager.set<Dictionary<ListItem>>(CookieKeys.TASK_LIST, itemList);
     }
-  });
+  }, [itemList]);
 
   const addItem = (item: ListItem) => {
     const key: string = Helpers.generateKey();
