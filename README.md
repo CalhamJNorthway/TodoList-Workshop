@@ -1,12 +1,19 @@
 
 ### PACKAGES USED:
+
 Material-UI: https://material-ui.com/
+
 Material-Icons: https://material-ui.com/components/material-icons/#material-icons
+
 React-Router: https://reactrouter.com/web/guides/quick-start
+
 Cookies: https://www.npmjs.com/package/universal-cookie
 
+
 ### DOCS:
+
 Typescript: https://www.typescriptlang.org/
+
 React: https://reactjs.org/docs/getting-started.html
 
 # Getting Started with Create React App
