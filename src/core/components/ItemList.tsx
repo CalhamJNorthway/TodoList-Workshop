@@ -1,4 +1,4 @@
-import { Button, Divider, List, ListItem as MuiItem, ListItemText, Typography } from "@material-ui/core";
+import { Button, Divider, List, ListItem as MuiItem, ListItemText, Typography, Container } from "@material-ui/core";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Dictionary, ListItem } from "../Types";
@@ -28,8 +28,8 @@ export const ItemList = (props: ItemListProps) => {
       {values.length <= 0
       ? <div style={{display: "flex", flex: 1, alignItems: "center", justifyContent: "center"}}><Typography variant="h6" color="textSecondary">Nothing To Do</Typography></div>
       : values.map((item: ListItem) => (
-        <>
-        <MuiItem key={item.key}>
+        <Container key={item.key}>
+        <MuiItem >
           <ListItemText style={{color: "#000000"}}>{item.title}</ListItemText>
           <Button
             variant={"contained"}
@@ -39,7 +39,7 @@ export const ItemList = (props: ItemListProps) => {
           </Button>
         </MuiItem>
         <Divider/>
-        </>
+        </Container>
       ))}
     </List>
   );
